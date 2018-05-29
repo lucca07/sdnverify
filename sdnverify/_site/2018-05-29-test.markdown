@@ -1,3 +1,8 @@
+---
+title: test
+layout: post
+---
+
 <html>
   <head>
     <!--Load the AJAX API-->
