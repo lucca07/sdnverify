@@ -5,11 +5,11 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
-      function drawGID() {
+      function drawSheetName() {
         var queryString = encodeURIComponent('SELECT C, E');
 
         var query = new google.visualization.Query(
-            'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174' + queryString);
+            'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174sheet=FormResponses1&headers=1' + queryString);
         query.send(handleQueryResponse);
       }
 
