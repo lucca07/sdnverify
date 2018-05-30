@@ -16,7 +16,7 @@
 	// drawDynamicSelect() and handleSelectResponse() are used to draw the dynamic list of question ids
 	function drawDynamicSelect(){
 		var query = new google.visualization.Query(
-          'http://spreadsheets.google.com/tq?key='+ssKey+'&pub=1');
+          'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174&headers=1');
 		   query.setQuery("SELECT B, Count(C) GROUP BY B ");
 		   query.send(handleSelectResponse);
 	}
@@ -53,7 +53,7 @@
       }
 
       var data = response.getDataTable();
-      visualization = new google.visualization.BarChart(document.getElementById('visualization'));
+      visualization = new google.visualization.ScatterChart(document.getElementById('visualization'));
       visualization.draw(data,
            {title:"Response Graph for "+document.myform.ansSet.value,
             width:600, height:400,
