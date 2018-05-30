@@ -16,11 +16,10 @@
       // draws it.
       function initialize() {
         var opts = {sendMethod: 'auto'};
+        var queryString = encodeURIComponent('SELECT C, H');
         // Replace the data source URL on next line with your data source URL.
         var query = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/gviz/tq');
-        // Optional request to return only column C and the sum of column B, grouped by C members.
-        query.setQuery('select C, H');
+        'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/gviz/tq?gid=483614174&headers=1&tq=' + queryString);
 
         // Send the query with a callback function.
         query.send(handleQueryResponse);
