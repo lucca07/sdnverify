@@ -1,3 +1,7 @@
+---
+title: rgraph
+---
+
 <html>
 
 <script src="RGraph.common.sheets.js"></script>
