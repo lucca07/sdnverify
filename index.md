@@ -17,7 +17,7 @@
 	function drawDynamicSelect(){
 		var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174&headers=1');
-		   query.setQuery("SELECT B, Count(C) GROUP BY B ");
+		   query.setQuery("SELECT C, E");
 		   query.send(handleSelectResponse);
 	}
 	function handleSelectResponse(response) {
