@@ -33,9 +33,10 @@
         var options = {
           title: 'EY 2019',
           width: 750,
-          height: 500
-          hAxis: {title: 'Submission Date'}
-          vAxis: {title: 'Days Until Verification'}
+          height: 500,
+          hAxis: {title: 'Submission Date'},
+          vAxis: {title: 'Days Until Verification'},
+          legend: none
         };
 
         var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
