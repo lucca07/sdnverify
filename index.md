@@ -5,15 +5,15 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
-      function initialize() {
-        var opts = {sendMethod: 'auto'};
-        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174', opts, headers=1)
+      function drawGID() {
+        var queryString = encodeURIComponent('SELECT C, E');
 
-        query.setQuery('select C, E')
+        var query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174' + queryString);
         query.send(handleQueryResponse);
       }
-      function handleQueryResponse(response) {
 
+      function handleQueryResponse(response) {
         if (response.isError()) {
           alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
           return;
@@ -21,7 +21,7 @@
 
         var data = response.getDataTable();
         var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-        chart.draw(data, {width: 400, height: 240});
+        chart.draw(data, {width:500, height: 400 });
       }
       function drawChart() {
        var data = google.visualization.arrayToDataTable([
