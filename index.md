@@ -17,8 +17,8 @@
       function initialize() {
         var opts = {sendMethod: 'auto'};
         // Replace the data source URL on next line with your data source URL.
-        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit?');         
-        
+        var query = new google.visualization.Query(
+        'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit?gid=483614174');
         // Optional request to return only column C and the sum of column B, grouped by C members.
         query.setQuery('select C, MINUS(E,C) group by C');
 
@@ -45,7 +45,6 @@
   </head>
 
   <body>
-    <!--Div that will hold the pie chart-->
     <div id="chart_div"></div>
   </body>
 </html>
