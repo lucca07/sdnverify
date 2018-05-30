@@ -44,6 +44,10 @@
   </head>
 
   <body>
+    <p>
+    This graph is populated from data from <a href="https://goo.gl/forms/xKw5dAw5AR17Ykxs1"> this form </a>.
+    <p>
+    Please do not fill out the form until your AMCAS application has been verified. 
     <div id="chart_div" style="width: 900px; height:500px;"></div>
   </body>
 </html>
