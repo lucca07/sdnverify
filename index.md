@@ -17,7 +17,7 @@
       function initialize() {
         var opts = {sendMethod: 'auto'};
         // Replace the data source URL on next line with your data source URL.
-        var query = new https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174', opts);         
+        var query = new google.visualization('https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174', opts);         
         -
         // Optional request to return only column C and the sum of column B, grouped by C members.
         query.setQuery('select C, MINUS(C,E)');
