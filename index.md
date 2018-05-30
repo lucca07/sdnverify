@@ -18,7 +18,7 @@
         var opts = {sendMethod: 'auto'};
         // Replace the data source URL on next line with your data source URL.
         var query = new google.visualization.Query(
-        'https://spreadsheets.google.com/pub?key=1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU');
+        'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/giz/tq');
         // Optional request to return only column C and the sum of column B, grouped by C members.
         query.setQuery('select C, H');
 
