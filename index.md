@@ -1,77 +1,51 @@
 
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>gEVS Using Google Spreadsheet and Visualization API as a voting system wrapper</title>
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.load('visualization', '1', {packages: ['corechart']});
-    </script>
-    <script type="text/javascript">
-	// To see the data that this visualization uses, browse to
-    // https://spreadsheets.google.com/ccc?key=tQW2XyL0iNBeq8m6zrFuMRw
-	var ssKey = "tQW2XyL0iNBeq8m6zrFuMRw";
-	var visualization;
 
-	// drawDynamicSelect() and handleSelectResponse() are used to draw the dynamic list of question ids
-	function drawDynamicSelect(){
-		var query = new google.visualization.Query(
-          'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174&headers=1');
-		   query.setQuery("SELECT C, E");
-		   query.send(handleSelectResponse);
-	}
-	function handleSelectResponse(response) {
-		if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function initialize() {
+        var opts = {sendMethod: 'auto'};
+        // Replace the data source URL on next line with your data source URL.
+        var query = new google.visualization.Query('http://spreadsheets.google.com/tq?key=0AnD0SFr9ooPgdG83Wm&transpose=0&headers=1&merge=COLS&range=A1%3AA5%2CB1%3AC5&gid=0&pub=1', opts);         
+        -
+        // Optional request to return only column C and the sum of column B, grouped by C members.
+        query.setQuery('select C, sum(B) group by C');
+
+        // Send the query with a callback function.
+        query.send(handleQueryResponse);
       }
 
-      var data = response.getDataTable();
-	  var ansSet=document.myform.ansSet
-	  for (i=0; i<data.getNumberOfRows(); i++){
-		var ansText = data.getValue(i, 0)+' (No of votes '+data.getValue(i, 1)+')';
-		var valText = data.getValue(i, 0);
-		ansSet.options[ansSet.options.length]=new Option(ansText,valText);
-      }  
-	}
- 	//drawVisualization() and handleQueryResponse() draw a chart for the selected data
-    function drawVisualization(ansSet) {  
-      var query = new google.visualization.Query(
-          'http://spreadsheets.google.com/tq?key='+ssKey+'&pub=1');
+      function handleQueryResponse(response) {
+        if (response.isError()) {
+          alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+          return;
+        }
 
-      // Apply query language.
-      query.setQuery("SELECT C, Count(B) WHERE B = '"+ansSet+"' GROUP BY C ");
+        var data = response.getDataTable();
 
-      // Send the query with a callback function.
-      query.send(handleQueryResponse);
-    }
+        var options = {
+          title: 'Company Performance'
+        };
 
-    function handleQueryResponse(response) {
-      if (response.isError()) {
-        alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-        return;
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
       }
-
-      var data = response.getDataTable();
-      visualization = new google.visualization.ScatterChart(document.getElementById('visualization'));
-      visualization.draw(data,
-           {title:"Response Graph for "+document.myform.ansSet.value,
-            width:600, height:400,
-			legend:'none',
-            vAxis: {title: "Answer Options"},
-            hAxis: {title: "Responses"}}
-      );
-    }
     </script>
-    </head>
-    <body style="font-family: Arial;border: 0 none;" onload="drawDynamicSelect();">
-    <p>Data for this page is extracted from this <a href="https://spreadsheets.google.com/ccc?key=tQW2XyL0iNBeq8m6zrFuMRw">Google Spreadsheet</a>. Responses can be added via <a href="https://spreadsheets.google.com/viewform?hl=en_GB&amp;formkey=dFFXMlh5TDBpTkJlcThtNnpyRnVNUnc6MQ#gid=0">this form</a>.</p>
-	<form action="" name="myform">
-      <select name="ansSet" onChange="drawVisualization(this.value)">
-    	<option value="">-Select Answer Set-</option>
-      </select>
-    </form>
-<div id="visualization" style="height: 400px; width: 600px;"></div>
-<footer>Created by <a href="http://twitter.com/mhawksey">mhawksey</a> | <a href="http://www.rsc-ne-scotland.org.uk/mashe/2010/12/gevs-google-visualization/">Related blog post</a></footer>
-</body>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
 </html>
