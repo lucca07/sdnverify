@@ -32,8 +32,6 @@
 
         var options = {
           title: 'EY 2019',
-          width: 750,
-          height: 500,
           hAxis: {title: 'Submission Date'},
           vAxis: {title: 'Days Until Verification'},
           legend: 'none'
@@ -46,6 +44,6 @@
   </head>
 
   <body>
-    <div id="chart_div"></div>
+    <div id="chart_div" style="width: 900px; height:500px;"></div>
   </body>
 </html>
