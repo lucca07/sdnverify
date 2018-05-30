@@ -17,10 +17,10 @@
       function initialize() {
         var opts = {sendMethod: 'auto'};
         // Replace the data source URL on next line with your data source URL.
-        var query = new google.visualization.Query('http://spreadsheets.google.com/tq?key=0AnD0SFr9ooPgdG83Wm&transpose=0&headers=1&merge=COLS&range=A1%3AA5%2CB1%3AC5&gid=0&pub=1', opts);         
+        var query = new https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174', opts);         
         -
         // Optional request to return only column C and the sum of column B, grouped by C members.
-        query.setQuery('select C, sum(B) group by C');
+        query.setQuery('select C, E');
 
         // Send the query with a callback function.
         query.send(handleQueryResponse);
