@@ -20,7 +20,7 @@
         var query = new google.visualization('https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/edit#gid=483614174', opts);         
         -
         // Optional request to return only column C and the sum of column B, grouped by C members.
-        query.setQuery('select C, MINUS(C,E) group by C');
+        query.setQuery('select C, MINUS(E,C) group by C');
 
         // Send the query with a callback function.
         query.send(handleQueryResponse);
