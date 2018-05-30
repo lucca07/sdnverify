@@ -36,7 +36,7 @@
           height: 500,
           hAxis: {title: 'Submission Date'},
           vAxis: {title: 'Days Until Verification'},
-          legend: none
+          legend: 'none'
         };
 
         var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
