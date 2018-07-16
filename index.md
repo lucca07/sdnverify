@@ -13,7 +13,7 @@
 
       function initialize() {
         var opts = {sendMethod: 'auto'};
-        var queryString = encodeURIComponent('SELECT C, H');
+        var queryString = encodeURIComponent('SELECT C, H, J');
 
         var query = new google.visualization.Query(
         'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/gviz/tq?gid=483614174&headers=1&tq=' + queryString);
@@ -31,13 +31,14 @@
         var data = response.getDataTable();
         var Rainbow = require('rainbowvis.js');
         var rainbow = new Rainbow();
-        rainbow.setNumberRange(1, 20);
+        rainbow.setNumberRange(1, data.getNumberOfRows());
         rainbow.setSpectrum('blue', 'red');
 
         //alter the DataTable
-        data.addColumn( {'type': 'string', 'role': 'emphasis'} );
+        var dataView = new google.visualization.DataView(data);
+        dataView.setColumns([0,1,{sourceColumn: 2, role: 'emphasis'}]};
         for (var i=0;i<data.getNumberOfRows();i++) {
-          data.setCell(i, 11, 'point { size:3; fill-color:'+rainbow.colorAt(i+1)+'}');
+          data.setCell(i, 2, 'point { size:3; fill-color:'+rainbow.colorAt(i+1)+'}');
         }
 
         var options = {
