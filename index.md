@@ -37,7 +37,7 @@
         //alter the DataTable
         var dataView = new google.visualization.DataView(data);
         dataView.setColumns([0,1,{sourceColumn: 2, role: 'emphasis'}]};
-        dataView.addColumn();
+        dataView.addColumn({'type':'string', 'role':'style'});
         for (var i=0;i<data.getNumberOfRows();i++) {
           dataView.setCell(i, 3, 'point { size:3; fill-color:'+rainbow.colorAt(i+1)+'}');
         }
