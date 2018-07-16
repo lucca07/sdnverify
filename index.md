@@ -37,7 +37,7 @@
         //alter the DataTable
         data.addColumn( {'type': 'string', 'role': 'emphasis'} );
         for (var i=0;i<data.getNumberOfRows();i++) {
-          data.setCell(i, 10, 'point { size:3; fill-color:'+rainbow.colorAt(i+1)+'}');
+          data.setCell(i, 11, 'point { size:3; fill-color:'+rainbow.colorAt(i+1)+'}');
         }
 
         var options = {
