@@ -37,8 +37,9 @@
         //alter the DataTable
         var dataView = new google.visualization.DataView(data);
         dataView.setColumns([0,1,{sourceColumn: 2, role: 'emphasis'}]};
+        dataView.addColumn();
         for (var i=0;i<data.getNumberOfRows();i++) {
-          data.setCell(i, 2, 'point { size:3; fill-color:'+rainbow.colorAt(i+1)+'}');
+          dataView.setCell(i, 3, 'point { size:3; fill-color:'+rainbow.colorAt(i+1)+'}');
         }
 
         var options = {
@@ -49,7 +50,7 @@
         };
 
         var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+        chart.draw(dataView, options);
       }
     </script>
   </head>
