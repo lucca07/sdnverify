@@ -30,7 +30,7 @@
 
         var data = response.getDataTable();
         var dataView = new google.visualization.DataView(data);
-        dataView.setColumns([0,1,{sourceColumn: 2, role: 'emphasis'}]};
+        dataView.setColumns([0,1,{sourceColumn: 2, type: "number", role: "emphasis"}]};
 
         var options = {
           title: 'EY 2019',
