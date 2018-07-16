@@ -29,6 +29,16 @@
         }
 
         var data = response.getDataTable();
+        var Rainbow = require('rainbowvis.js');
+        var rainbow = new Rainbow();
+        rainbow.setNumberRange(1, data.getNumberOfRows());
+        rainbow.setSpectrum('blue', 'red');
+
+        //alter the DataTable
+        data.addColumn( {'type': 'string', 'role': 'style'} );
+        for (var i=0;i<data.getNumberOfRows();i++) {
+          data.setCell(i, 10, 'point { size:10; fill-color:'+rainbow.colorAt(i+1)+'}');
+        }
 
         var options = {
           title: 'EY 2019',
