@@ -28,24 +28,8 @@
         }
 
         var data = response.getDataTable();
-
-        data.addColumn( {'type': 'string', 'role': 'style'} );
-        //var Rainbow = require('rainbowvis.js');
-        var rainbow = new Rainbow();
-        rainbow.setNumberRange(1, 10);
-				rainbow.setSpectrum('blue', 'red');
-        for (var i=0;i<data.getNumberOfRows();i++) {
-        	var emVal = data.getValue(i,2);
-        	//var emVal = data.cell(':eq('+i+')', 2).data();
-          //“Datatablename”.Rows(“rownumber”).Item(“columnName/columnNumber”)
-    			data.setCell(i, 3, 'point { fill-color:'+rainbow.colorAt(emVal)+'}');
-				}
         var dataView = new google.visualization.DataView(data);
-        dataView.setColumns([0,1,{sourceColumn: 2, type: "number", role: "tooltip"},3]);
-
-
-
-				//alter the DataTable
+        dataView.setColumns([0,1,{sourceColumn: 2, type: "number", role: "emphasis"}]);
 
         var options = {
           title: 'EY 2019',
