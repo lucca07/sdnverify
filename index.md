@@ -13,10 +13,9 @@
       function initialize() {
         var opts = {sendMethod: 'auto'};
         var queryString = encodeURIComponent('SELECT C, H, J');
-
+        
         var query = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/1Of1qzPE-9AjRG9tH8-_IgDMr572Jhl9EaXUIKElUugU/gviz/tq?gid=483614174&headers=1&tq=' + queryString);
-
+        'https://docs.google.com/spreadsheets/d/1HL_GnURVgixzX5voqFALFy5N7-EojTb4VO4tzYk4zIo/gviz/tq?gid=1910361281&headers=1&tq=' + queryString);
 
         query.send(handleQueryResponse);
       }
@@ -32,7 +31,7 @@
         dataView.setColumns([0,1,{sourceColumn: 2, type: "number", role: "emphasis"}]);
 
         var options = {
-          title: 'EY 2019',
+          title: 'EY 2020',
           hAxis: {title: 'Submission Date'},
           vAxis: {title: 'Days Until Verification'},
           legend: 'none'
@@ -46,7 +45,7 @@
 
   <body>
     <p>
-    This graph is populated with data from <a href="https://goo.gl/forms/xKw5dAw5AR17Ykxs1"> this form </a>.
+    This graph is populated with data from <a href="https://forms.gle/G2gBP4NVWLRrSo9A9"> this form </a>.
     </p>
     <p>
     Please do not fill out the form until your AMCAS application has been verified.
