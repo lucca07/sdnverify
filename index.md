@@ -32,7 +32,7 @@
 
         var options = {
           title: 'EY 2020',
-          hAxis: {title: 'Submission Date'},
+          hAxis: {title: 'Submission Date', type: "date"},
           vAxis: {title: 'Days Until Verification'},
           legend: 'none'
         };
