@@ -13,7 +13,6 @@
       function initialize() {
         var opts = {sendMethod: 'auto'};
         var queryString = encodeURIComponent('SELECT C, H, L');
-        
         var query = new google.visualization.Query(
         'https://docs.google.com/spreadsheets/d/1HL_GnURVgixzX5voqFALFy5N7-EojTb4VO4tzYk4zIo/gviz/tq?gid=1910361281&headers=1&tq=' + queryString);
 
@@ -32,7 +31,7 @@
 
         var options = {
           title: 'EY 2020',
-          hAxis: {title: 'Submission Date', type: "date"},
+          hAxis: {title: 'Submission Date'},
           vAxis: {title: 'Days Until Verification'},
           legend: 'none'
         };
